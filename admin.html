@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameShop | Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="admin">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">GameShop</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="products.html" class="nav-btn">Store</a>
+        <a href="cart.html" class="nav-btn cart-link">
+          <span>Cart</span>
+          <span id="cart-count" class="cart-badge">0</span>
+        </a>
+        <a href="orders.html" class="nav-btn">Orders</a>
+      </nav>
+      <div class="nav-actions">
+        <a id="admin-dashboard-btn" href="admin.html" class="secondary-btn"
+          >Admin</a
+        >
+        <a id="login-btn" href="auth.html" class="primary-btn hide">Login</a>
+        <button id="logout-btn" class="primary-btn hide">Logout</button>
+        <span id="user-greeting" class="user-greeting hide"></span>
+      </div>
+    </header>
+
+    <main>
+      <div class="admin-container">
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+          <div class="admin-sidebar-header">
+            <h3>Dashboard</h3>
+          </div>
+          <nav class="admin-nav">
+            <button class="admin-tab-btn active" data-admin-tab="products">
+              <span class="tab-icon">🎮</span>
+              <span>Games</span>
+            </button>
+            <button class="admin-tab-btn" data-admin-tab="orders">
+              <span class="tab-icon">📦</span>
+              <span>Orders</span>
+            </button>
+            <button class="admin-tab-btn" data-admin-tab="users">
+              <span class="tab-icon">👥</span>
+              <span>Users</span>
+            </button>
+          </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="admin-content">
+          <!-- PRODUCTS PANEL -->
+          <div id="admin-products" class="admin-panel active">
+            <div class="panel-header">
+              <div>
+                <h1>Game Management</h1>
+                <p>Manage your game catalog</p>
+              </div>
+              <button id="new-product-btn" class="btn btn-primary">
+                + Add New Game
+              </button>
+            </div>
+
+            <!-- STATS CARDS -->
+            <div class="admin-stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">🎮</div>
+                <div class="stat-content">
+                  <span class="stat-label">Total Games</span>
+                  <span class="stat-value" id="total-games">0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-content">
+                  <span class="stat-label">Total Revenue</span>
+                  <span class="stat-value" id="total-revenue">$0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                  <span class="stat-label">Total Sales</span>
+                  <span class="stat-value" id="total-sales">0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCTS TABLE -->
+            <div id="admin-product-list" class="admin-grid"></div>
+          </div>
+
+          <!-- ORDERS PANEL -->
+          <div id="admin-orders" class="admin-panel">
+            <div class="panel-header">
+              <div>
+                <h1>Order Management</h1>
+                <p>View and manage customer orders</p>
+              </div>
+            </div>
+
+            <!-- ORDER STATS -->
+            <div class="admin-stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-content">
+                  <span class="stat-label">Total Orders</span>
+                  <span class="stat-value" id="total-orders">0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                  <span class="stat-label">Completed</span>
+                  <span class="stat-value" id="completed-orders">0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-content">
+                  <span class="stat-label">Pending</span>
+                  <span class="stat-value" id="pending-orders">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="admin-order-list"></div>
+          </div>
+
+          <!-- USERS PANEL -->
+          <div id="admin-users" class="admin-panel">
+            <div class="panel-header">
+              <div>
+                <h1>User Management</h1>
+                <p>Manage customer accounts</p>
+              </div>
+            </div>
+
+            <!-- USER STATS -->
+            <div class="admin-stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                  <span class="stat-label">Total Users</span>
+                  <span class="stat-value" id="total-users">0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">✨</div>
+                <div class="stat-content">
+                  <span class="stat-label">Active Users</span>
+                  <span class="stat-value" id="active-users">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="admin-user-list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal hide">
+      <div class="modal-card">
+        <h3 id="modal-title"></h3>
+        <form id="modal-form" class="modal-form"></form>
+        <div class="modal-actions">
+          <button id="modal-cancel" type="button" class="btn btn-secondary">
+            Cancel
+          </button>
+          <button id="modal-save" type="submit" class="btn btn-primary">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" style="margin-top: auto;">
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameShop Admin Dashboard | Built with HTML, CSS & JavaScript</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameShop | My Orders</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="orders">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">GameShop</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="products.html" class="nav-btn">Store</a>
+        <a href="cart.html" class="nav-btn cart-link">
+          <span>Cart</span>
+          <span id="cart-count" class="cart-badge">0</span>
+        </a>
+        <a href="orders.html" class="nav-btn active">Orders</a>
+      </nav>
+      <div class="nav-actions">
+        <a id="admin-dashboard-btn" href="admin.html" class="secondary-btn hide"
+          >Admin</a
+        >
+        <a id="login-btn" href="auth.html" class="primary-btn">Login</a>
+        <button id="logout-btn" class="primary-btn hide">Logout</button>
+        <span id="user-greeting" class="user-greeting hide"></span>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+          <h1>Order History</h1>
+          <p>View and manage all your past orders</p>
+        </section>
+
+        <!-- ORDERS LIST -->
+        <div id="orders-list"></div>
+
+        <!-- EMPTY STATE -->
+        <div id="empty-orders-state" class="empty-state hide">
+          <div class="empty-state-icon">📦</div>
+          <h3>No orders yet</h3>
+          <p>Start shopping to see your orders appear here</p>
+          <a href="products.html" class="btn btn-primary">Browse Games</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>GameShop</h4>
+          <p>Your ultimate destination for PC gaming</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Store</a>
+          <a href="cart.html">Cart</a>
+          <a href="orders.html">Orders</a>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">FAQ</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">📘</a>
+            <a href="#" class="social-icon">▶️</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameShop. All rights reserved. | Built with HTML, CSS & JavaScript</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="orders.js"></script>
+  </body>
+</html>

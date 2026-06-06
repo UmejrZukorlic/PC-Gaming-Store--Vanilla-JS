@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameShop | Ultimate PC Gaming Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <!-- STICKY HEADER -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">GameShop</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-btn active">Home</a>
+        <a href="products.html" class="nav-btn">Store</a>
+        <a href="cart.html" class="nav-btn cart-link">
+          <span>Cart</span>
+          <span id="cart-count" class="cart-badge">0</span>
+        </a>
+        <a href="orders.html" class="nav-btn">Orders</a>
+      </nav>
+      <div class="nav-actions">
+        <a id="admin-dashboard-btn" href="admin.html" class="secondary-btn hide"
+          >Admin</a
+        >
+        <a id="login-btn" href="auth.html" class="primary-btn">Login</a>
+        <button id="logout-btn" class="primary-btn hide">Logout</button>
+        <span id="user-greeting" class="user-greeting hide"></span>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Discover Your Next Adventure</h1>
+          <p class="hero-subtitle">
+            Explore thousands of AAA titles, indie gems, and exclusive releases
+          </p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary">Browse Games</a>
+            <a href="products.html" class="btn btn-secondary">View Deals</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Games</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Players</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">Daily</span>
+              <span class="stat-label">Discounts</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80"
+            alt="Gaming Hero" />
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- FEATURED GAMES SECTION -->
+        <section class="featured-section">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Featured Games</h2>
+              <p class="section-subtitle">Premium titles handpicked for you</p>
+            </div>
+            <a href="products.html" class="view-all-link">View All →</a>
+          </div>
+          <section id="home-product-grid" class="products-grid"></section>
+        </section>
+
+        <!-- SPECIAL OFFERS SECTION -->
+        <section class="special-offers">
+          <div class="promo-card">
+            <div class="promo-content">
+              <span class="promo-badge">Limited Time</span>
+              <h3>Summer Sale</h3>
+              <p>Get up to 75% off on selected games</p>
+              <div class="countdown">
+                <div class="time-unit">
+                  <span class="time-value">2</span>
+                  <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">14</span>
+                  <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">32</span>
+                  <span class="time-label">Minutes</span>
+                </div>
+              </div>
+              <a href="products.html" class="btn btn-primary btn-small">Shop Now</a>
+            </div>
+            <div class="promo-glow"></div>
+          </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section class="categories-section">
+          <h2 class="section-title">Browse by Category</h2>
+          <div class="categories-grid">
+            <div class="category-card" style="--cat-color: #ff006e">
+              <div class="category-image action"></div>
+              <span>Action</span>
+            </div>
+            <div class="category-card" style="--cat-color: #8338ec">
+              <div class="category-image rpg"></div>
+              <span>RPG</span>
+            </div>
+            <div class="category-card" style="--cat-color: #3a86ff">
+              <div class="category-image strategy"></div>
+              <span>Strategy</span>
+            </div>
+            <div class="category-card" style="--cat-color: #fb5607">
+              <div class="category-image racing"></div>
+              <span>Racing</span>
+            </div>
+            <div class="category-card" style="--cat-color: #06d6a0">
+              <div class="category-image sports"></div>
+              <span>Sports</span>
+            </div>
+            <div class="category-card" style="--cat-color: #ffbe0b">
+              <div class="category-image indie"></div>
+              <span>Indie</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <section class="features-section">
+          <h2 class="section-title">Why Choose GameShop</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h4>Instant Delivery</h4>
+              <p>Get your games instantly after purchase</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h4>Secure Payments</h4>
+              <p>Protected transactions with encrypted security</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💰</div>
+              <h4>Best Prices</h4>
+              <p>Competitive pricing with frequent discounts</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎧</div>
+              <h4>24/7 Support</h4>
+              <p>Round-the-clock customer support team</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="newsletter-section">
+          <div class="newsletter-card">
+            <div class="newsletter-content">
+              <h3>Stay Updated</h3>
+              <p>Get exclusive deals and new releases straight to your inbox</p>
+              <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  class="newsletter-input" />
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>GameShop</h4>
+          <p>Your ultimate destination for PC gaming</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Store</a>
+          <a href="cart.html">Cart</a>
+          <a href="orders.html">Orders</a>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">FAQ</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">📘</a>
+            <a href="#" class="social-icon">▶️</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameShop. All rights reserved. | Built with HTML, CSS & JavaScript</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="home.js"></script>
+    <script>
+      function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const input = e.target.querySelector('.newsletter-input');
+        input.value = '';
+        alert('Thanks for subscribing!');
+      }
+    </script>
+  </body>
+</html>
