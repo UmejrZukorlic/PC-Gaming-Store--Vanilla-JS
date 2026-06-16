@@ -250,6 +250,7 @@ function getHashProductId() {
 }
 
 function logoutUser() {
+  localStorage.removeItem("token");
   saveAuth(null);
   renderNavigation();
   updateCartCount();

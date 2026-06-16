@@ -86,6 +86,11 @@ async function loginUser({ email, password }) {
       throw new Error("Invalid login response.");
     }
 
+    const token = data.token || data.access_token || data.plainTextToken;
+    if (token) {
+      localStorage.setItem("token", token);
+    }
+
     const existingUser = state.users.find(
       (item) => item.email.toLowerCase() === email.toLowerCase(),
     );

@@ -72,39 +72,45 @@ function renderCartPage() {
   checkoutBtn.disabled = false;
 }
 
-function placeOrder() {
+async function placeOrder() {
   const user = currentUser();
   if (!user) return;
+
   const cart = user.cart || [];
   if (cart.length === 0) return;
 
-  const orderItems = cart.map((item) => ({
-    productId: item.productId,
-    quantity: item.quantity,
-  }));
-  const total = cart.reduce((sum, item) => {
-    const product = state.products.find(
-      (product) => product.id === item.productId,
-    );
-    return product ? sum + product.price * item.quantity : sum;
-  }, 0);
+  const payload = {
+    items: cart.map((item) => ({
+      game_id: item.productId, // ili item.gameId ako tako čuvaš ID
+      quantity: item.quantity,
+    })),
+  };
 
-  const nextOrderId = state.orders.length
-    ? Math.max(...state.orders.map((order) => order.id)) + 1
-    : 1;
-  state.orders.push({
-    id: nextOrderId,
-    userId: user.id,
-    items: orderItems,
-    status: "pending",
-    total,
-    createdAt: new Date().toISOString(),
-  });
-  updateUserCart(user, []);
-  persist();
-  renderCartPage();
-  alert("Order placed successfully!");
-  window.location.href = "orders.html";
+  try {
+    const response = await fetch("http://localhost:8000/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to place order");
+    }
+
+    updateUserCart(user, []);
+    persist();
+
+    alert("Order placed successfully!");
+    window.location.href = "orders.html";
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
 }
 
 function handleCartChange(action, productId) {
