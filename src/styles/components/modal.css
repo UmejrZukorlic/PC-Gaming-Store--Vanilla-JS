@@ -1,0 +1,5 @@
+.modal-card {
+  max-height: min(90vh, 720px);
+  overflow: auto;
+}
+

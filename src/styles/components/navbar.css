@@ -1,0 +1,12 @@
+.topbar {
+  width: 100%;
+}
+
+.nav-actions {
+  min-width: 0;
+}
+
+.user-greeting {
+  overflow-wrap: anywhere;
+}
+
